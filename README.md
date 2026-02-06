@@ -91,15 +91,27 @@ The format was reverse-engineered by inspecting aText.exe's .NET assembly, which
 └──────────────────────────────────────────────────────────┘
 ```
 
-### Hex Dump (first 56 bytes of a real file)
+### Hex Dump (from a real file)
 
 ```
-EF BB BF 7B 22 30 22 3A 22 64 32 61 62 61 34 33  ...{"0":"d2aba43
-33 2D 39 31 65 39 2D 34 62 33 64 2D 61 32 63 39  3-91e9-4b3d-a2c9
-2D 66 62 36 30 63 32 65 33 66 36 64 38 22 2C 22  -fb60c2e3f6d8","
-31 22 3A 74 72 75 65 7D 00 04 22 4D 18           1":true}.."M.
-                          ↑↑ ↑↑↑↑↑↑↑↑
-                     null byte  LZ4 magic
+Offset    Hex                                             ASCII
+────────  ──────────────────────────────────────────────  ────────────────
+00000000  EF BB BF 7B 22 30 22 3A 22 64 32 61 62 61 34  ...{"0":"d2aba4
+00000010  33 33 2D 39 31 65 39 2D 34 62 33 64 2D 61 32  33-91e9-4b3d-a2
+00000020  63 39 2D 66 62 36 30 63 32 65 33 66 36 64 38  c9-fb60c2e3f6d8
+00000030  22 2C 22 31 22 3A 74 72 75 65 7D 00 04 22 4D  ","1":true}.."M
+00000040  18 ...                                         .
+                                        ↑↑ ↑↑↑↑↑↑↑↑
+                                   null byte  LZ4 magic
+
+          (...4.8 MB of LZ4-compressed JSON...)
+
+          Decompressed, a snippet looks like this in the JSON stream:
+
+          22 31 22 3A 5B 22 77 77 77 6E 68 76 22 5D 2C 22  "1":["wwwnhv"],"
+          33 22 3A 22 74 22 2C 22 34 22 3A 22 77 77 77 2E  3":"t","4":"www.
+          4E 61 63 68 68 69 6C 66 65 2D 56 65 72 6D 69 74  Nachhilfe-Vermit
+          74 6C 75 6E 67 2E 63 6F 6D 22                    tlung.com"
 ```
 
 ### Decompressed JSON Structure
