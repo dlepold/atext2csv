@@ -2,7 +2,7 @@
 
 Export [aText](https://www.trankynam.com/atext/) snippets to CSV, JSON, Espanso YAML, or plain text.
 
-aText is a popular text expander for Windows and macOS by Tran Ky Nam. Its `.atext` files use a proprietary binary format with no built-in CSV export (on Windows). This tool decodes that format and exports your snippets to open, portable formats.
+aText is a very useful and popular text expander for Windows and macOS by Tran Ky Nam. Its `.atext` files use a proprietary binary format, unfortunately with no built-in CSV export (on Windows). This tool was born out of necessity — a migration to Linux. It decodes that specific `.atext` format and exports your snippets to open, portable formats. It's also educational, so I share it. 🧑‍🎓
 
 ## Quick Start
 
